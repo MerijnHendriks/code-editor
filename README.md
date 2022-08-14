@@ -1,3 +1,5 @@
+![Banner](docs/img/banner.png)
+
 # Sake
 
 A small code editor written in dotnet 6.0 and avalonia.
