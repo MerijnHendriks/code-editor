@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "name": "Run: Debug",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "Build: Debug",
+            "cwd": "${workspaceFolder}/bin/Debug/net6.0",
+            "program": "Sake.dll",
+            "emitEntryPoint": true,
+            "logging": {
+                "moduleLoad": false
+            }
+        }
+    ],
+    "compounds": []
+}

@@ -1,0 +1,13 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/.vs": true,
+        "**/bin": true,
+        "**/obj": true,
+        "**/*.gitignore": true,
+        "**/*.csproj": true,
+        "**/*.sln": true
+    }
+}
