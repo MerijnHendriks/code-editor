@@ -5,7 +5,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <TrimMode>copyused</TrimMode>
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
-    <StartupObject></StartupObject>
+    <StartupObject>Sake.Program</StartupObject>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
