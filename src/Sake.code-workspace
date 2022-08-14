@@ -1,0 +1,74 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"**/.git": true,
+			"**/.DS_Store": true,
+			"**/Thumbs.db": true,
+			"**/bin": true,
+			"**/obj": true,
+			"**/*.gitignore": true,
+			"**/*.csproj": true,
+			"**/*.sln": true
+		}
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-dotnettools.csharp"
+		]
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "Restore",
+				"type": "shell",
+				"problemMatcher": "$msCompile",
+				"command": "dotnet restore"
+			},
+			{
+				"label": "Build: Debug",
+				"type": "shell",
+				"problemMatcher": "$msCompile",
+				"group": "build",
+				"command": "dotnet build --nologo --no-restore --configuration Debug",
+			},
+			{
+				"label": "Build: Release",
+				"type": "shell",
+				"problemMatcher": "$msCompile",
+				"group": "build",
+				"command": "dotnet build --nologo --no-restore --configuration Release",
+				"linux": {
+					"command": "dotnet publish --nologo --no-restore -p:PublishProfile=Properties/PublishProfiles/linux-x64.pubxml"
+				},
+				"osx": {
+					"command": "dotnet publish --nologo --no-restore -p:PublishProfile=Properties/PublishProfiles/osx-x64.pubxml"
+				},
+				"windows": {
+					"command": "dotnet publish --nologo --no-restore -p:PublishProfile=Properties/PublishProfiles/win-x64.pubxml"
+				}
+			}
+		]
+	},
+	"launch": {
+		"configurations": [
+			{
+				"name": "Run: Debug",
+				"type": "coreclr",
+				"request": "launch",
+				"preLaunchTask": "Build: Debug",
+				"cwd": "${workspaceFolder}/bin/Debug/net6.0",
+				"program": "Sake.dll",
+				"logging": {
+					"moduleLoad": false
+				}
+			}
+		],
+		"compounds": []
+	}
+}
