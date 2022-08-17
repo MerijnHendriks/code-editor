@@ -5,12 +5,12 @@ using Sake.Views;
 
 namespace Sake.Utils
 {
-    public class StatusText
+    public class StatusBar
     {
         private readonly TextEditor _textEditor;
         private readonly TextBlock _statusTextBlock;
 
-        public StatusText(MainWindow mainWindow, ref TextEditor textEditor, ref TextBlock statusTextBlock)
+        public StatusBar(MainWindow mainWindow, ref TextEditor textEditor, ref TextBlock statusTextBlock)
         {
             _statusTextBlock = statusTextBlock;
             _textEditor = textEditor;

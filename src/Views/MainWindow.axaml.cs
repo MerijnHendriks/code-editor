@@ -8,14 +8,17 @@ namespace Sake.Views
     public partial class MainWindow : Window
     {
         private readonly CodeView _codeView;
+        private readonly StatusBar _statusBar;
 
         public MainWindow()
         {
             AvaloniaXamlLoader.Load(this);
 
             var textEditor = this.FindControl<TextEditor>("Editor");
-            var statusTextBlock = this.Find<TextBlock>("StatusText");
-            _codeView = new CodeView(this, textEditor, statusTextBlock);
+            _codeView = new CodeView(this, textEditor);
+
+            var statusBar = this.Find<TextBlock>("StatusText");
+            _statusBar = new StatusBar(this, ref textEditor, ref statusBar);
         }
     }
 }
