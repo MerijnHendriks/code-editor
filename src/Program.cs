@@ -17,7 +17,7 @@ namespace Sake
         public static AppBuilder BuildAvaloniaApp()
             => AppBuilder.Configure<App>()
                 .UsePlatformDetect()
-                .LogToTrace()
-                .UseReactiveUI();
+                .UseReactiveUI()
+                .LogToTrace();
     }
 }

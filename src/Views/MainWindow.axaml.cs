@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using Avalonia.Markup.Xaml;
 using Sake.Utils;
 
 namespace Sake.Views
@@ -9,7 +10,7 @@ namespace Sake.Views
 
         public MainWindow()
         {
-            InitializeComponent();
+            AvaloniaXamlLoader.Load(this);
             _codeView = new CodeView(this);
         }
     }
