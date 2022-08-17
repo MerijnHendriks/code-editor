@@ -1,17 +1,28 @@
 <Window xmlns="https://github.com/avaloniaui"
+        xmlns:AvalonEdit="clr-namespace:AvaloniaEdit;assembly=AvaloniaEdit"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:Sake.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d"
+        MinWidth="450"  Width="450"  d:DesignWidth="450"
+        MinHeight="300" Height="300" d:DesignHeight="300"
         x:Class="Sake.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
         Title="Sake">
 
-    <Design.DataContext>
-        <vm:MainWindowViewModel/>
-    </Design.DataContext>
-
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    <DockPanel>
+        <StackPanel Name="StatusBar" Background="Purple" Height="25" DockPanel.Dock="Bottom" Orientation="Horizontal">
+            <TextBlock Name="StatusText" Text="Ready" Margin="5 0 0 0" VerticalAlignment="Center" FontSize="12"/>
+        </StackPanel>
+        <AvalonEdit:TextEditor Name="Editor"
+                            FontFamily="Consolas,Menlo,Monospace"
+                            Margin="30"
+                            Foreground="#D4D4D4"
+                            HorizontalScrollBarVisibility="Auto"
+                            VerticalScrollBarVisibility="Visible"
+                            FontWeight="Light"
+                            FontSize="14" />
+    </DockPanel>
 
 </Window>
