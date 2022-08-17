@@ -6,14 +6,23 @@ namespace Sake.Utils
 {
     public class CodeView
     {
-        private readonly CodeViewTheming _theming;
         private readonly TextEditor _textEditor;
 
-        public CodeView(MainWindow mainWindow, TextEditor textEditor)
+        public CodeView(MainWindow mainWindow, ref TextEditor textEditor, Shortcuts shortcuts)
         {
+            var contextMenu = new ContextMenu 
+            { 
+                Items = new MenuItem[] 
+                { 
+                    new MenuItem { Header = "Copy", InputGesture = shortcuts.Get("Copy") },
+                    new MenuItem { Header = "Paste", InputGesture = shortcuts.Get("Paste") },
+                    new MenuItem { Header = "Cut", InputGesture = shortcuts.Get("Cut") }
+                } 
+            };
+
             _textEditor = textEditor;
             _textEditor.ShowLineNumbers = true;
-            _theming = new CodeViewTheming(ref _textEditor);
+            _textEditor.ContextMenu = contextMenu;
         }
     }
 }
