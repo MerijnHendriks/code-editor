@@ -7,12 +7,12 @@ namespace Sake.Utils
 {
     public class StatusText
     {
-        private TextEditor _textEditor;
-        private TextBlock _statusTextBlock;
+        private readonly TextEditor _textEditor;
+        private readonly TextBlock _statusTextBlock;
 
-        public StatusText(MainWindow mainWindow, ref TextEditor textEditor)
+        public StatusText(MainWindow mainWindow, ref TextEditor textEditor, ref TextBlock statusTextBlock)
         {
-            _statusTextBlock = mainWindow.Find<TextBlock>("StatusText");
+            _statusTextBlock = statusTextBlock;
             _textEditor = textEditor;
             _textEditor.TextArea.Caret.PositionChanged += Caret_PositionChanged;
         }

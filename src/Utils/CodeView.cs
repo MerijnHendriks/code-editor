@@ -6,15 +6,15 @@ namespace Sake.Utils
 {
     public class CodeView
     {
-        private CodeViewTheming _theming;
-        private StatusText _statusText;
-        private TextEditor _textEditor;
+        private readonly CodeViewTheming _theming;
+        private readonly StatusText _statusText;
+        private readonly TextEditor _textEditor;
 
-        public CodeView(MainWindow mainWindow)
+        public CodeView(MainWindow mainWindow, TextEditor textEditor, TextBlock statusTextBlock)
         {
-            _textEditor = mainWindow.FindControl<TextEditor>("Editor");
+            _textEditor = textEditor;
             _textEditor.ShowLineNumbers = true;
-            _statusText = new StatusText(mainWindow, ref _textEditor);
+            _statusText = new StatusText(mainWindow, ref _textEditor, ref statusTextBlock);
             _theming = new CodeViewTheming(ref _textEditor);
         }
     }

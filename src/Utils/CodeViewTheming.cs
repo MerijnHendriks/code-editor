@@ -8,9 +8,9 @@ namespace Sake.Utils
 {
     public class CodeViewTheming : IDisposable
     {
-        private RegistryOptions _registryOptions;
+        private readonly RegistryOptions _registryOptions;
         private readonly TextMate.Installation _textMate;
-        private int _currentTheme = (int)ThemeName.DarkPlus;
+        private readonly int _currentTheme = (int)ThemeName.DarkPlus;
 
         public CodeViewTheming(ref TextEditor textEditor)
         {
