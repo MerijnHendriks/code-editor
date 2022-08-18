@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Avalonia.Media;
 using AvaloniaEdit;
 using AvaloniaEdit.TextMate;
@@ -23,8 +24,14 @@ namespace Sake.Utils
             _textMate = textEditor.InstallTextMate(_registryOptions);
 
             // set default language
-            Language defaultLanguage = _registryOptions.GetLanguageByExtension(".cs");
-            _textMate.SetGrammar(_registryOptions.GetScopeByLanguageId(defaultLanguage.Id));
+            SetLanguage("default.cs");
+        }
+
+        public void SetLanguage(string filepath)
+        {
+            var extension = Path.GetExtension(filepath);
+            var language = _registryOptions.GetLanguageByExtension(extension);
+            _textMate.SetGrammar(_registryOptions.GetScopeByLanguageId(language.Id));
         }
 
         public void Dispose()
