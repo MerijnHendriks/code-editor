@@ -34,9 +34,6 @@ namespace Sake.Utils
             _textMate.SetGrammar(_registryOptions.GetScopeByLanguageId(language.Id));
         }
 
-        public void Dispose()
-        {
-            _textMate.Dispose();
-        }
+        public void Dispose() => _textMate.Dispose();
     }
 }

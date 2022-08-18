@@ -18,13 +18,8 @@ namespace Sake.Utils
         }
 
         public void Add(string name, KeyGesture keys)
-        {
-            _keyBindings.Add(name, keys);
-        }
+            => _keyBindings.Add(name, keys);
 
-        public KeyGesture Get(string name)
-        {
-            return _keyBindings[name];
-        }
+        public KeyGesture Get(string name) => _keyBindings[name];
     }
 }
